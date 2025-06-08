@@ -7,3 +7,4 @@ These projects are aimed at developing skills in machine learning and artificial
 
 ITMO Projects located in branches:
 - MLOps Project in [MLOps-Project-develop](https://github.com/dizel0110/ITMO/tree/MLOps-Project-develop) branch
+- Software Design project  in [software design](https://github.com/dizel0110/ITMO/tree/software-design-develop) branch. This project combines image processing and financial management features, providing a comprehensive user experience. FastAPI, RabbitMQ and Telegram bot ensure efficient and scalable backend operations, while rembg library handles the image processing.
