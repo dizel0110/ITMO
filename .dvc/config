@@ -1,0 +1,7 @@
+[core]
+    remote = "s3_mlops_final_project"
+
+['remote "s3_mlops_final_project"']
+    url = "s3://a-susina-2"
+    use_ssl = "false"
+    endpointurl = "http://194.180.188.67:9020"
