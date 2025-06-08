@@ -1,0 +1,112 @@
+version: "3"
+services:
+  api:
+    container_name: api
+    build:
+      context: ./app/
+    image: event-planner-api:latest
+    ports:
+      - "8000:8000"
+    restart: always
+    env_file:
+      - ./app/.env
+    volumes:
+      - ./app:/app
+    command: python api.py
+    depends_on:
+      db:
+        condition: service_started
+
+  bot:
+    container_name: bot
+    build: ./app/
+    image: event-planner-api:latest
+    env_file:
+      - ./app/.env
+    volumes:
+      - ./app:/app
+    command: python tg.py
+    restart: always
+    depends_on:
+      - api
+      - rabbitmq
+
+  streamlit:
+    container_name: streamlit
+    build: ./app/
+    image: event-planner-api:latest
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+    command: streamlit run streamlit/signin.py
+    restart: always
+    depends_on:
+      - api
+
+  web-proxy:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    depends_on:
+      - api
+      - db
+
+  worker:
+    container_name: worker
+    build: ./app/
+    image: event-planner-api:latest
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+    command: python rmworker_init.py
+    restart: always
+    depends_on:
+      rabbitmq:
+        condition: service_started
+
+
+  rabbitmq:
+    image: rabbitmq:3.13.3-management
+    hostname: rabbitmq
+    env_file:
+      ./app/.env
+    volumes:
+      - ./rabbitmq_volume:/var/lib/rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    restart: always
+
+
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=sa
+    restart: always
+#    networks:
+#      - my_network
+#
+#networks:
+#  my_network:
+#    driver: host
+
+# volumes:
+#  rabbitmq_volume:
+#  postgres_volume:

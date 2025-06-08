@@ -1,0 +1,1 @@
+FASTAPI_URL = "http://api:8000"
