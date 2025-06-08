@@ -1,0 +1,90 @@
+image: python:3.11.3
+stages:
+  - test
+
+lint:
+  stage: test
+  rules:
+    - if: $CI_MERGE_REQUEST_ID != null
+  when: always
+  before_script:
+    - python -m venv .venv
+    - source .venv/bin/activate
+    - .venv/bin/pip install -U pip setuptools
+    - .venv/bin/pip install -r requirements.txt
+  script:
+    - .venv/bin/pip install flake8
+    - flake8 src -v
+  cache:
+    key:
+      files:
+        - "requirements.txt"
+      prefix: venv
+    paths:
+      - .venv
+  allow_failure: true
+  needs: []
+
+
+dvc_test:
+  stage: test
+  rules:
+    - if: $CI_MERGE_REQUEST_ID != null
+  when: always
+  before_script:
+    - apt-get update
+    - apt install curl -y
+    - curl https://dl.min.io/client/mc/release/linux-amd64/mc --create-dirs -o $HOME/minio-binaries/mc
+    - chmod +x $HOME/minio-binaries/mc
+    - export PATH=$PATH:$HOME/minio-binaries/
+    - cp .dvc/config.dist.local .dvc/config.local
+    - sed -i 's~$ACCESS_KEY_LOCAL~'"$ACCESS_KEY"'~g' .dvc/config.local
+    - sed -i 's~$SECRET_KEY_LOCAL~'"$SECRET_KEY"'~g' .dvc/config.local
+  script:
+    - mc alias set minio $MINIO_URL $ACCESS_KEY $SECRET_KEY
+    - pip install dvc dvc-s3
+    - dvc pull
+  cache:
+    key:
+      files:
+        - "requirements.txt"
+      prefix: venv
+    paths:
+      - .venv
+  needs: ["lint"]
+
+
+unit_test:
+  stage: test
+  rules:
+    - if: $CI_MERGE_REQUEST_ID != null
+  when: always
+  before_script:
+    - python -m venv .venv
+    - source .venv/bin/activate
+    - .venv/bin/pip install -U pip setuptools
+    - .venv/bin/pip install -r requirements.txt
+    - .venv/bin/pip install pytest
+  script:
+    - dvc remote modify s3_mlops_final_project access_key_id "$ACCESS_KEY"
+    - dvc remote modify s3_mlops_final_project secret_access_key "$SECRET_KEY"
+    - pytest -s -v ./tests/unit
+  cache:
+    key:
+      files:
+        - "requirements.txt"
+      prefix: venv
+    paths:
+      - .venv
+  needs: ["dvc_test"]
+
+
+integration_tests:
+  stage: test
+  rules:
+    - if: $CI_MERGE_REQUEST_ID != null
+  when: manual
+  script:
+    - venv/bin/pytest -s -v ./tests/integration
+  allow_failure: false
+  needs: ["unit_test"]
