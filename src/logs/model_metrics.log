@@ -1,0 +1,8 @@
+INFO:root:Предсказание на тесте для модели RandomForestClassifier
+INFO:root:Accuracy: 0.694
+INFO:root:F1: 0.674
+INFO:root:RocAuc: 0.750
+INFO:root:Предсказание на тесте для модели LogisticRegression
+INFO:root:Accuracy: 0.634
+INFO:root:F1: 0.607
+INFO:root:RocAuc: 0.700
