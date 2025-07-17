@@ -9,7 +9,7 @@ https://github.com/dizel0110/ITMO/tree/MedTech/ai_rembg) - вариант исп
 Также в проекте находятся файлы:
 - [business_understanding.md](https://github.com/dizel0110/ITMO/blob/MedTech/business_understanding.md) - понимание бизнеса системы персонализированного здравоохранения на основе IoT и ML
 - [product_prototype.md](https://github.com/dizel0110/ITMO/blob/MedTech/product_prototype.md) - прототип продукта
-- [MFDP_MIS_EMRS.pdf](https://github.com/dizel0110/ITMO/blob/MedTech/MFDP_MIS_EMRS.pdf) - бенчмарк Electronic Medical Records Software, сравнение конкурентов, определение стратегии развития предлагаемого продукта. Постановка задачи - уменьшение времени сбора актуального анамнеза из электронных медицинских карт во время приёма пациента врачом
+- [MFDP_MIS_EMRS.pdf](https://github.com/dizel0110/ITMO/blob/MedTech/MFDP_MIS_EMRS.pdf) - бенчмарк Electronic Medical Records Software, сравнение конкурентов, определение стратегии развития предлагаемого продукта. Постановка задачи - уменьшение времени сбора актуального анамнеза из электронных медицинских карт во время приёма пациента врачом. Презентация стратегии развития, уникальных требований продукта доступна по [ссылке](https://docs.google.com/presentation/d/12mypqbfO-CBLfcwH2hT-AGKU6v00XFyI/edit?usp=drive_link&ouid=114478400878253137432&rtpof=true&sd=true)
 - [medtech_feature_engineering.ipynb](https://github.com/dizel0110/ITMO/blob/MedTech/medtech_feature_engineering.ipynb) - ноутбук с анализом реальных данных
 - [medtech_models.ipynb](https://github.com/dizel0110/ITMO/blob/MedTech/medtech_models.ipynb) - ноутбук с моделями
 
