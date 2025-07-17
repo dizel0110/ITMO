@@ -1,0 +1,87 @@
+---
+
+version: '3.9'
+
+services:
+  db:
+    hostname: db
+    image: postgres:15.3-alpine
+    container_name: ai_photoenhancer-db
+    command: postgres -c idle_session_timeout=600000 -c max_connections=300
+    restart: always
+    env_file: .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U akcent -d ai_photoenhancer"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  redis:
+    image: redis:7.0.11-alpine
+    restart: always
+    volumes:
+      - redis-data:/var/lib/redis
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+
+  nginx:
+    image: ai_photoenhancer/nginx:latest
+    restart: always
+    depends_on:
+      - django
+    ports:
+      - "8000:8443"
+    volumes:
+      - ${WORKDIR_PATH}/ssl:/usr/src/app/ssl
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+    environment:
+      NGINX_HOSTNAME: ${NGINX_HOSTNAME}
+    command: /bin/sh -c "./etc/nginx/conf.d/config.sh && exec nginx -g 'daemon off;'"
+
+  django:
+    image: ai_photoenhancer/django:latest
+    command: bash -c "./initapp.sh"
+    container_name: 'ai_photoenhancer-django'
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    expose:
+      - 8000
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+
+  worker:
+    image: ai_photoenhancer/django:latest
+    command: celery -A ai_photoenhancer worker --loglevel=info --concurrency 1 -E
+    container_name: 'ai_photoenhancer-celery'
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+
+  scheduler:
+    image: ai_photoenhancer/django:latest
+    command: celery -A ai_photoenhancer beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    container_name: 'ai_photoenhancer-celery-beat'
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+
+volumes:
+  postgres_data:
+  redis-data:

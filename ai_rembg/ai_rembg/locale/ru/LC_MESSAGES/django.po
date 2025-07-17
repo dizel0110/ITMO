@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-15 23:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\ai_photoenhancer\apps\background_remover\models.py:32
+msgid "User Activity"
+msgstr "Активность пользователя"
+
+#: .\ai_photoenhancer\apps\background_remover\models.py:33
+msgid "User Activities"
+msgstr "Активности пользователя"
+
+#: .\ai_photoenhancer\apps\background_remover\views.py:37
+msgid "Photo does not exist or not named correctly."
+msgstr "Фотографии не существует или названа не правильно"
+
+#: .\ai_photoenhancer\apps\background_remover\views.py:70
+msgid "The identifier is not correct."
+msgstr "Идентификатор не верен"
+
+#: .\ai_photoenhancer\apps\common\apps.py:8
+msgid "Base Settings"
+msgstr "Базовые настройки"
+
+#: .\ai_photoenhancer\apps\common\models.py:12
+msgid "User"
+msgstr "Пользователь"
+
+#: .\ai_photoenhancer\apps\common\models.py:13
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\ai_photoenhancer\apps\common\models.py:21
+msgid "Unknown user"
+msgstr "Неизвестный пользователь"
+
+#: .\ai_photoenhancer\settings.py:143
+msgid "Russian"
+msgstr "Русский"
+
+#: .\ai_photoenhancer\settings.py:144
+msgid "English"
+msgstr "Английский"
+
+#: .\ai_photoenhancer\settings.py:248
+msgid "Akcent ai photoenhancer"
+msgstr "Улучшитель фото на базе искусственного интеллекта. Akcent."
+
+#: .\ai_photoenhancer\settings.py:319
+msgid "The host to use for sending email."
+msgstr "Адрес почтового сервера."
+
+#: .\ai_photoenhancer\settings.py:320
+msgid "Port to use for the SMTP server."
+msgstr "Порт почтового сервера."
+
+#: .\ai_photoenhancer\settings.py:321
+msgid "Email from address"
+msgstr "Адрес отправителя"
+
+#: .\ai_photoenhancer\settings.py:324
+msgid "Username to use for the SMTP server."
+msgstr "Логин для почтового сервера."
+
+#: .\ai_photoenhancer\settings.py:327
+msgid "Password to use for the SMTP server."
+msgstr ""
+
+#: .\ai_photoenhancer\settings.py:331
+msgid "Whether to use a TLS (secure) connection when talking to the SMTP server. This is used for explicit TLS connections, generally on port 587. If you are experiencing hanging connections, see the implicit TLS setting EMAIL_USE_SSL."
+msgstr ""
+
+#: .\ai_photoenhancer\settings.py:341
+msgid "Whether to use an implicit TLS (secure) connection when talking to the SMTP server. In most email documentation this type of TLS connection is referred to as SSL. It is generally used on port 465. If you are experiencing problems, see the explicit TLS setting EMAIL_USE_TLS."
+msgstr ""
+
+#: .\ai_photoenhancer\settings.py:348
+msgid "Default support mailbox."
+msgstr "Почтовый адрес службы поддержки."
+
+#: .\ai_photoenhancer\settings.py:349
+msgid "File storage type"
+msgstr "Тип хранения файлов"
+
+#: .\ai_photoenhancer\settings.py:350
+msgid "File storage host"
+msgstr "Хост файлового хранилища"
+
+#: .\ai_photoenhancer\settings.py:351
+msgid "File storage name (bucket, etc.)"
+msgstr "Имя хранилища файлов (бакет и т.д.)"
+
+#: .\ai_photoenhancer\settings.py:352
+msgid "Username (key, id, etc.)"
+msgstr "Логин (ключ, идентификатор и т.д.)"
+
+#: .\ai_photoenhancer\settings.py:353
+msgid "Password (secret key, token, etc.)"
+msgstr "Пароль (секретный ключ, токен и т.д.)"
+
+#: .\ai_photoenhancer\settings.py:354
+msgid "Region name or similar"
+msgstr "Название региона или подобное"
+
+#: .\ai_photoenhancer\settings.py:355
+msgid "Path to original photo"
+msgstr "Путь к исходной фотографии"
+
+#: .\ai_photoenhancer\settings.py:356
+msgid "Path to final photo"
+msgstr "Путь к обработанной фотографии"
+
+#: .\ai_photoenhancer\settings.py:357
+msgid "Result filename postfix"
+msgstr "Постфикс имени резуьтирующего файла"
+
+#: .\ai_photoenhancer\templates\admin\base_site.html:3
+msgid "Django site admin"
+msgstr "Администрация сайта Джанго"
+
+#: .\ai_photoenhancer\templates\admin\base_site.html:6
+msgid "Django administration"
+msgstr "Администрация Джанго"
+
+#: .\ai_photoenhancer\templates\admin\index.html:23
+msgid "Recent actions"
+msgstr "Недавние действия"
+
+#: .\ai_photoenhancer\templates\admin\index.html:24
+msgid "My actions"
+msgstr "Мои действия"
+
+#: .\ai_photoenhancer\templates\admin\index.html:28
+msgid "None available"
+msgstr "Не доступно"
+
+#: .\ai_photoenhancer\templates\admin\index.html:42
+msgid "Unknown content"
+msgstr "Неизвестное содержание"
+
+#: .\ai_photoenhancer\utils\storage_tools.py:17
+msgid "S3 storage"
+msgstr "Хранилище S3"
