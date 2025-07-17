@@ -1,0 +1,211 @@
+[tool.poetry]
+name = "nlp"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.1"
+asgiref = "3.8.1"
+psycopg = {extras = ["binary"], version = "^3.2.3"}
+django-celery-beat = "2.7.0"
+celery = "5.2.7"
+redis = "4.5.5"
+sqlparse = "^0.4.4"
+django-constance = {version = "2.9.1", extras = ["database"]}
+requests = "^2.31.0"
+pytz = "2023.3"
+djangorestframework = "3.15.1"
+python-decouple = "^3.8"
+dj-database-url = "2.0.0"
+django-cors-headers = "4.0.0"
+django-model-utils = "4.3.1"
+django-query-counter = "0.2.2"
+pillow = "10.0.0"
+django-autocomplete-light = "3.11.0"
+gunicorn = "20.1.0"
+sentry-sdk = "^1.29.2"
+django-cacheops = "^7.0.2"
+django-filter = "^24.2"
+pyarmor = "^8.4.2"
+djangorestframework-simplejwt = {extras = ["crypto"], version = "^5.3.1"}
+django-health-check = "^3.18.3"
+openai = "1.51.0"
+pygments = "^2.17.2"
+aiohttp = "^3.10.10"
+uvicorn = {extras = ["standard"], version = "^0.32.1"}
+django-redis = "^5.4.0"
+transformers = "4.47.0"
+pandas = "2.2.2"
+annoy = "^1.17.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "23.7.0"
+celery-stubs = "0.1.3"
+django-migration-linter = "4.1.0"
+django-stubs = "4.2.3"
+flake8 = "6.0.0"
+flake8-blind-except = "0.2.1"
+flake8-colors = "0.1.9"
+flake8-commas = "2.1.0"
+flake8-debugger = "4.1.2"
+flake8-django = "1.3"
+flake8-fixme = "1.1.1"
+flake8-print = "5.0.0"
+flake8-quotes = "3.3.2"
+flake8-variables-names = "0.0.5"
+isort = "5.12.0"
+mixer = "^7.2.2"
+mypy = "1.5.0"
+pylint = "2.17.5"
+pylint-django = "2.5.3"
+pylint-plugin-utils = "0.8.2"
+pytest = "^7.4.0"
+pytest-django = "^4.5.2"
+pytest-env = "^0.8.2"
+pytest-mock = "^3.11.1"
+watchdog = {extras = ["watchmedo"], version = "^3.0.0"}
+pre-commit = "^3.3.3"
+flake8-pyproject = "^1.2.3"
+types-redis = "^4.6.0.11"
+types-requests = "2.31.0.2"
+shellcheck-py = "^0.10.0.1"
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+skip-string-normalization = true
+
+[tool.pylint.MASTER]
+load-plugins = [
+    'pylint.extensions.check_elif',
+    'pylint.extensions.bad_builtin',
+    'pylint.extensions.docparams',
+    'pylint.extensions.for_any_all',
+    'pylint.extensions.set_membership',
+    'pylint.extensions.code_style',
+    'pylint.extensions.overlapping_exceptions',
+    'pylint.extensions.typing',
+    'pylint.extensions.redefined_variable_type',
+    'pylint.extensions.comparison_placement',
+    'pylint.extensions.mccabe',
+    'pylint_django',
+]
+django-settings-module='nlp.settings'
+
+[tool.pylint.'MESSAGES CONTROL']
+enable=[
+    'use-symbolic-message-instead',
+    'useless-suppression',
+]
+disable=[
+    'attribute-defined-outside-init',
+    'invalid-name',
+    'missing-docstring',
+    'missing-class-docstring',
+    'missing-function-docstring',
+    'missing-module-docstring',
+    'protected-access',
+    'too-few-public-methods',
+    # handled by black
+    'format',
+    # We anticipate #3512 where it will become optional
+    'fixme',
+    'cyclic-import',
+    'import-error',
+    'too-many-ancestors',
+    'consider-using-namedtuple-or-dataclass',
+    'logging-fstring-interpolation',
+]
+
+[tool.pylint.'SIMILARITIES']
+ignore-imports = true
+ignore-signatures = true
+
+[tool.pylint.'FORMAT']
+min-similarity-lines = 10
+fail-under = 9.7
+py-version = 3.9
+good-names=[
+    'db',
+    'i',
+    'j',
+    'k',
+    'ex',
+    'Run',
+    'x', 'x1', 'x2', 'x3', 'x4', 'x5',
+    'y',
+    'df',
+    '_'
+]
+max-line-length = 120
+disable = [
+    'c-extension-no-member',
+    'consider-using-assignment-expr',
+    'fixme',
+    'import-outside-toplevel',
+    'locally-disabled',
+    'suppressed-message',
+    'missing-class-docstring',
+    'missing-function-docstring',
+    'missing-module-docstring',
+    'too-few-public-methods',
+    'too-many-arguments',
+    'too-many-instance-attributes',
+    'too-many-locals',
+    'wrong-import-position',
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = 'nlp.settings'
+python_files = [
+  'tests.py',
+  '*_tests.py',
+  'test_*.py',
+]
+norecursedirs = [
+  'env/*',
+  'venv/*',
+  'docs/*',
+  'misc/*',
+  'static/*',
+  'temp/*',
+  'migrations*',
+  'dist/*',
+  'dev/*',
+  'volumes/*',
+]
+markers = [
+  'no_django: Пропуск запуска django',
+]
+
+[tool.flake8]
+ignore = ['T101', 'W503', 'E203']
+max-line-length = 120
+exclude = [
+  'static',
+  '*/migrations/*',
+  'frontend',
+  '.git',
+  '__pycache__',
+  '.venv',
+  'venv',
+  'dist',
+]
+inline-quotes = 'single'
+multiline-quotes = 'double'
+max-complexity = 11
+max-annotations-complexity = 4
+per-file-ignores = []
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
