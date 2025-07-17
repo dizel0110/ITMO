@@ -1,0 +1,40 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+<li>
+  <a id="stop_main_process" href="#"
+     class="btn btn-primary">
+    {% translate "Stop main process" %}
+  </a>
+</li>
+<li>
+  <a id="resume_main_process" href="#"
+     class="btn btn-primary">
+    {% translate "Resume main process" %}
+  </a>
+</li>
+{{ block.super }}
+
+<script>
+  document.getElementById('stop_main_process').onclick = function() {
+    fetch('{% url 'protocol:manage_processing' 'stop' %}')
+      .then(function (response) {
+          response.text()
+            .then(function (text) {
+              alert(text);
+            });
+      });
+  }
+
+  document.getElementById('resume_main_process').onclick = function() {
+    fetch('{% url 'protocol:manage_processing' 'resume' %}')
+      .then(function (response) {
+          response.text()
+            .then(function (text) {
+              alert(text);
+            });
+      });
+  }
+</script>
+{% endblock %}

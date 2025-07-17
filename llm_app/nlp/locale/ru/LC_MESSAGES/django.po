@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-28 13:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: nlp/apps/common/apps.py:8
+msgid "Base Settings"
+msgstr "Основные Настройки"
+
+#: nlp/apps/common/models.py:38
+msgid "User"
+msgstr "Пользователь"
+
+#: nlp/apps/common/models.py:39
+msgid "Users"
+msgstr "Пользователи"
+
+#: nlp/apps/common/models.py:47
+msgid "Unknown user"
+msgstr "Неизвестный пользователь"
+
+#: nlp/apps/common/services/messages.py:12
+msgid "[Akcent] Test Email"
+msgstr "Акцент. Тестовое сообщение"
+
+#: nlp/apps/protocol/admin.py:32
+msgid "Search by user ID or medcard ID"
+msgstr "Поиск по ID пользователя или медкарты"
+
+#: nlp/apps/protocol/admin.py:35
+msgid "Priority process protocols"
+msgstr "Обработать протоколы (приоритетно)"
+
+#: nlp/apps/protocol/admin.py:43
+msgid ""
+"Main processing is running (task ID {})! Stop it first by the button below."
+msgstr ""
+"Запущен главный процесс (task ID {})! Сначала остановите его кнопкой ниже."
+
+#: nlp/apps/protocol/admin.py:98
+msgid "Return protocols to autoprocessing"
+msgstr "Вернуть протоколы в автообработку"
+
+#: nlp/apps/protocol/admin.py:105 nlp/apps/protocol/models.py:60
+msgid "Error message"
+msgstr "Сообщение ошибки"
+
+#: nlp/apps/protocol/models.py:6
+msgid "Medcard ID"
+msgstr "ID медкарты"
+
+#: nlp/apps/protocol/models.py:7
+msgid "User ID"
+msgstr "ID пользователя"
+
+#: nlp/apps/protocol/models.py:9
+msgid "Protocol Custom ID"
+msgstr "Кастомный ID протокола"
+
+#: nlp/apps/protocol/models.py:12
+msgid "User-defined arbitrary string. Do not edit manually!"
+msgstr "Произвольная строка, заданная пользователем. Не редактировать вручную!"
+
+#: nlp/apps/protocol/models.py:14
+msgid "Service ID"
+msgstr "ID услуги"
+
+#: nlp/apps/protocol/models.py:15
+msgid "Raw Text"
+msgstr "Необработанный текст"
+
+#: nlp/apps/protocol/models.py:16
+msgid "Result"
+msgstr "Результат"
+
+#: nlp/apps/protocol/models.py:17 nlp/apps/protocol/models.py:62
+msgid "Processed at"
+msgstr "Время обработки"
+
+#: nlp/apps/protocol/models.py:18
+msgid "Parsing errors count"
+msgstr "Счетчик ошибок парсинга"
+
+#: nlp/apps/protocol/models.py:19
+msgid "API errors count"
+msgstr "Счетчик ошибок АПИ"
+
+#: nlp/apps/protocol/models.py:20
+msgid "Is sent to GraphDB"
+msgstr "Отправлен в GraphDB"
+
+#: nlp/apps/protocol/models.py:21
+msgid "Is saved to GraphDB"
+msgstr "Сохранен в GraphDB"
+
+#: nlp/apps/protocol/models.py:24 nlp/apps/protocol/models.py:36
+#: nlp/apps/protocol/models.py:55
+msgid "Protocol"
+msgstr "Протокол"
+
+#: nlp/apps/protocol/models.py:25
+msgid "Protocols"
+msgstr "Протоколы"
+
+#: nlp/apps/protocol/models.py:39
+msgid "Errors"
+msgstr "Ошибки"
+
+#: nlp/apps/protocol/models.py:40
+msgid "Created at"
+msgstr "Время создания"
+
+#: nlp/apps/protocol/models.py:43
+msgid "Protocol structure error"
+msgstr "Ошибка структуры протокола"
+
+#: nlp/apps/protocol/models.py:44
+msgid "Protocol structure errors"
+msgstr "Ошибки структуры протокола"
+
+#: nlp/apps/protocol/models.py:58
+msgid "Error type"
+msgstr "Тип ошибки"
+
+#: nlp/apps/protocol/models.py:59
+msgid "Traceback"
+msgstr "Traceback"
+
+#: nlp/apps/protocol/models.py:61
+msgid "LLM response"
+msgstr "Респонс LLM"
+
+#: nlp/apps/protocol/models.py:65
+msgid "Parsing error"
+msgstr "Ошибка парсинга"
+
+#: nlp/apps/protocol/models.py:66
+msgid "Parsing errors"
+msgstr "Ошибки парсинга"
+
+#: nlp/apps/protocol/templates/admin/protocol/protocol/change_list.html:8
+msgid "Stop main process"
+msgstr "Остановить главный процесс"
+
+#: nlp/apps/protocol/templates/admin/protocol/protocol/change_list.html:14
+msgid "Resume main process"
+msgstr "Возобновить главный процесс"
+
+#: nlp/apps/secret_settings/admin.py:40 nlp/apps/secret_settings/models.py:58
+msgid "Structure"
+msgstr "Структура"
+
+#: nlp/apps/secret_settings/models.py:9 nlp/apps/secret_settings/models.py:32
+#: nlp/apps/secret_settings/models.py:52
+msgid "Name"
+msgstr "Имя"
+
+#: nlp/apps/secret_settings/models.py:15
+msgid "Model"
+msgstr "Model"
+
+#: nlp/apps/secret_settings/models.py:16
+msgid "Temperature"
+msgstr "Temperature"
+
+#: nlp/apps/secret_settings/models.py:17
+msgid "Top P"
+msgstr "Top P"
+
+#: nlp/apps/secret_settings/models.py:18
+msgid "Max Tokens"
+msgstr "Max Tokens"
+
+#: nlp/apps/secret_settings/models.py:19
+msgid "Repetition Penalty"
+msgstr "Repetition Penalty"
+
+#: nlp/apps/secret_settings/models.py:20
+msgid "Seed"
+msgstr "Seed"
+
+#: nlp/apps/secret_settings/models.py:23
+msgid "LLM setting"
+msgstr "Настройки ЛЛМ"
+
+#: nlp/apps/secret_settings/models.py:24
+msgid "LLM settings"
+msgstr "Настройки ЛЛМ"
+
+#: nlp/apps/secret_settings/models.py:37
+msgid "System prompt"
+msgstr "Системный промпт"
+
+#: nlp/apps/secret_settings/models.py:38
+msgid "Example request prompt"
+msgstr "Промпт примера запроса"
+
+#: nlp/apps/secret_settings/models.py:39
+msgid "Example answer prompt"
+msgstr "Промпт примера ответа"
+
+#: nlp/apps/secret_settings/models.py:40
+msgid "Answer format"
+msgstr "Формат ответа"
+
+#: nlp/apps/secret_settings/models.py:43
+msgid "Prompt"
+msgstr "Промпт"
+
+#: nlp/apps/secret_settings/models.py:44
+msgid "Prompts"
+msgstr "Промпты"
+
+#: nlp/apps/secret_settings/models.py:61
+msgid "DB setting"
+msgstr "Настройка GraphDB"
+
+#: nlp/apps/secret_settings/models.py:62
+msgid "DB settings"
+msgstr "Настройки GraphDB"
+
+#: nlp/apps/secret_settings/models.py:70
+msgid "Is Active"
+msgstr "Активно"
+
+#: nlp/apps/secret_settings/models.py:73
+msgid "Indicates whether this setup is currently active."
+msgstr "Показывает, является ли данная установка активной"
+
+#: nlp/apps/secret_settings/models.py:75
+msgid "Shifted Window"
+msgstr "Сдвинутое окно"
+
+#: nlp/apps/secret_settings/models.py:76
+msgid "Unification"
+msgstr "Унификацияч"
+
+#: nlp/apps/secret_settings/models.py:77
+msgid "Rephrase"
+msgstr "Рефраз"
+
+#: nlp/apps/secret_settings/models.py:80
+msgid "Global LLM Processing setting"
+msgstr "Глобальный параметр обработки LLM"
+
+#: nlp/apps/secret_settings/models.py:81
+msgid "Global LLM Processing settings"
+msgstr "Глобальные параметры обработки LLM"
+
+#: nlp/settings.py:157
+msgid "Russian"
+msgstr "Русский"
+
+#: nlp/settings.py:158
+msgid "English"
+msgstr "Английский"
+
+#: nlp/settings.py:285
+msgid "Akcent AI Module"
+msgstr "Акцент. Модуль ИИ"
+
+#: nlp/settings.py:357
+msgid "The host to use for sending email."
+msgstr "Хост для отправки почты"
+
+#: nlp/settings.py:358
+msgid "Port to use for the SMTP server."
+msgstr "Порт для отправки почты"
+
+#: nlp/settings.py:359
+msgid "Email from address"
+msgstr "Адрес ОТ"
+
+#: nlp/settings.py:362
+msgid "Username to use for the SMTP server."
+msgstr "Имя пользователя почтового ящика"
+
+#: nlp/settings.py:365
+msgid "Password to use for the SMTP server."
+msgstr "Пароль почтового ящика"
+
+#: nlp/settings.py:369
+msgid ""
+"Whether to use a TLS (secure) connection when talking to the SMTP server. "
+"This is used for explicit TLS connections, generally on port 587. If you are "
+"experiencing hanging connections, see the implicit TLS setting EMAIL_USE_SSL."
+msgstr ""
+
+#: nlp/settings.py:379
+msgid ""
+"Whether to use an implicit TLS (secure) connection when talking to the SMTP "
+"server. In most email documentation this type of TLS connection is referred "
+"to as SSL. It is generally used on port 465. If you are experiencing "
+"problems, see the explicit TLS setting EMAIL_USE_TLS."
+msgstr ""
+
+#: nlp/settings.py:386
+msgid "Default support mailbox."
+msgstr "Почта техподдержки по умолчанию"
+
+#: nlp/settings.py:389
+msgid "License server auth url"
+msgstr "URL авторизации сервера лицензий"
+
+#: nlp/settings.py:392
+msgid "License server login"
+msgstr "Логин сервера лицензий"
+
+#: nlp/settings.py:393
+msgid "License server password"
+msgstr "Пароль сервера лицензий"
+
+#: nlp/settings.py:394
+msgid "License access token lifetime, sec"
+msgstr "Время жизни токена доступа сервера лицензий"
+
+#: nlp/settings.py:395
+msgid "License refresh token lifetime, sec"
+msgstr "Время жизни токена обновления сервера лицензий"
+
+#: nlp/settings.py:396
+msgid "Maximum retries for parsing errors (0 for unlimited)"
+msgstr "Максимум попыток при ошибках парсинга (0 - не ограничено)"
+
+#: nlp/settings.py:397
+msgid "Maximum retries for API errors (0 for unlimited)"
+msgstr "Максимум попыток при ошибках АПИ (0 - не ограничено)"
+
+#: nlp/settings.py:400
+msgid ""
+"Batch size for multiprocess protocols. Stop and resume main process in "
+"Protocols section to apply changes"
+msgstr ""
+"Число потоков параллельной обработки протоколов. Остановите и возобновите "
+"главный процесс для применения изменений"
+
+#: nlp/settings.py:403
+msgid "Priority users (enter numbers separated by comma)"
+msgstr "Приоритетные пользователи (введите номера через запятую"
+
+#: nlp/templates/admin/send_test_email.html:4
+msgid "Refresh JWT key(s)"
+msgstr "Обновить ключ(и) JWT"
+
+#: nlp/templates/admin/send_test_email.html:16
+msgid "Success!"
+msgstr "Успешно!"
+
+#: nlp/templates/admin/send_test_email.html:18
+msgid "Something went wrong. Please try again!"
+msgstr "Что-то пошло не так. Попробуйте еще раз!"
