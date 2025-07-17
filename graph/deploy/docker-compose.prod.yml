@@ -1,0 +1,153 @@
+---
+
+version: '3.9'
+
+services:
+  db:
+    hostname: db
+    image: postgres:15.3-alpine
+    command: postgres -c idle_session_timeout=600000 -c max_connections=300
+    restart: always
+    env_file: .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U akcent_graph -d akcent-graph"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  redis:
+    image: redis:7.0.11-alpine
+    restart: always
+    volumes:
+      - redis-data:/var/lib/redis
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+
+  nginx:
+    image: akcent_graph/nginx:latest
+    restart: always
+    depends_on:
+      - django
+    ports:
+      - "8000:8443"
+    volumes:
+      - ${WORKDIR_PATH}/ssl:/usr/src/app/ssl
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+    environment:
+      NGINX_HOSTNAME: ${NGINX_HOSTNAME}
+    command: /bin/sh -c "./etc/nginx/conf.d/config.sh && exec nginx -g 'daemon off;'"
+
+  django:
+    image: akcent_graph/django:latest
+    command: bash -c "./initapp.sh"
+    container_name: 'akcent_graph-django'
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    expose:
+      - 8000
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+      - ann-data:/usr/src/app/akcent_graph/utils/clients/gpt/anns
+
+  graph-celery-worker-new-med-features:
+    image: akcent_graph/django:latest
+    command: celery -A akcent_graph worker --loglevel=info --autoscale=3,1 -E -n worker1 -Q new_med_features
+    container_name: "graph-celery-worker-new-med-features"
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+      - ann-data:/usr/src/app/akcent_graph/utils/clients/gpt/anns
+
+  graph-celery-worker-additional-med-features:
+    image: akcent_graph/django:latest
+    command: celery -A akcent_graph worker --loglevel=info --concurrency 1 -E -n worker2 -Q additional_med_features
+    container_name: "graph-celery-worker-additional-med-features"
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+
+  graph-celery-worker-default:
+    image: akcent_graph/django:latest
+    command: celery -A akcent_graph worker --loglevel=info --autoscale=3,1 -E -n worker3 -Q default
+    container_name: "graph-celery-worker-default"
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+
+  graph-celery-worker-low:
+    image: akcent_graph/django:latest
+    command: celery -A akcent_graph worker --loglevel=info --autoscale=2,1 -E -n worker4 -Q low
+    container_name: "graph-celery-worker-low"
+    restart: unless-stopped
+    depends_on:
+      - graph-celery-worker-default
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+      - ${WORKDIR_PATH}/private:/usr/src/app/private
+
+  scheduler:
+    image: akcent_graph/django:latest
+    command: celery -A akcent_graph beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    container_name: 'akcent_graph-celery-beat'
+    restart: unless-stopped
+    depends_on:
+      - django
+      - redis
+    env_file: .env
+    volumes:
+      - ${WORKDIR_PATH}/public/static:/usr/src/app/public/static
+      - ${WORKDIR_PATH}/public/media:/usr/src/app/public/media
+
+  neo4j:
+    image: akcent_graph/neo4j:latest
+    container_name: 'akcent_graph-neo4j'
+    restart: unless-stopped
+    depends_on:
+      - django
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    expose:
+      - 7474
+      - 7687
+    volumes:
+      - neo-db-data:/data
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD}
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      - NEO4J_dbms_connector_bolt_advertised__address=0.0.0.0:7687
+      - NEO4J_dbms_connector_bolt_listen__address=0.0.0.0:7687
+      - NEO4J_dbms_connectors_default__advertised__address=${NEO4J_DOMAIN}
+
+volumes:
+  postgres_data:
+  redis-data:
+  neo-db-data:
+  ann-data:
