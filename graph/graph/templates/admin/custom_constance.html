@@ -1,0 +1,19 @@
+{% extends 'admin/constance/change_list.html' %}
+{% load i18n %}
+{% block content %}
+<input id="refresh_keys" type="button" value="{% translate "Refresh JWT keys" %}" />
+{{ block.super }}
+<br>
+<script>
+  document.getElementById('refresh_keys').onclick = function() {
+    fetch('{% url 'common:refresh_jwt_keys' %}')
+      .then(function (response) {
+        if (response.ok) {
+          alert('{% translate "Success!" %}');
+        } else {
+          alert('{% translate "Something went wrong. Please try again!" %}')
+        }
+        });
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+{{ block.super }}
+<li>
+  <a id="related_protocols" href="/admin/medaggregator/protocol/?patient_medcard_id={{ object_id }}"
+     class="btn btn-primary">
+    {% translate "Protocols" %}
+  </a>
+</li>
+
+{% endblock %}

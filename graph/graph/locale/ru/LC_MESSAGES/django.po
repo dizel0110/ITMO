@@ -1,0 +1,510 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-14 19:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: akcent_graph/apps/common/apps.py:8
+msgid "Base Settings"
+msgstr "Базовые настройки"
+
+#: akcent_graph/apps/common/models.py:12
+msgid "User"
+msgstr "Пользователь"
+
+#: akcent_graph/apps/common/models.py:13
+msgid "Users"
+msgstr "Пользователи"
+
+#: akcent_graph/apps/common/models.py:21
+msgid "Unknown user"
+msgstr "Неизвестный пользователь"
+
+#: akcent_graph/apps/feature_classifier/apps.py:8
+msgid "Features classifier"
+msgstr "Классификатор фич"
+
+#: akcent_graph/apps/feature_classifier/models.py:13
+#: akcent_graph/apps/feature_classifier/models.py:55
+msgid "Features"
+msgstr "Фичи"
+
+#: akcent_graph/apps/feature_classifier/models.py:14
+#: akcent_graph/apps/feature_classifier/models.py:57
+msgid "Importance"
+msgstr "Значение"
+
+#: akcent_graph/apps/feature_classifier/models.py:15
+#: akcent_graph/apps/feature_classifier/models.py:58
+msgid "Annoy scores"
+msgstr "Оценка из Анноя"
+
+#: akcent_graph/apps/feature_classifier/models.py:16
+#: akcent_graph/apps/feature_classifier/models.py:59
+#: akcent_graph/apps/feature_classifier/models.py:93
+msgid "GPT description"
+msgstr "Описание из GPT"
+
+#: akcent_graph/apps/feature_classifier/models.py:19
+msgid "Feature Classifier"
+msgstr "Классификатор фичи"
+
+#: akcent_graph/apps/feature_classifier/models.py:20
+msgid "Features Classifier"
+msgstr "Классификатор фич"
+
+#: akcent_graph/apps/feature_classifier/models.py:56
+msgid "Additional features"
+msgstr "Дополнительные фичи"
+
+#: akcent_graph/apps/feature_classifier/models.py:62
+msgid "Additional feature Classifier"
+msgstr "Дополнительная фича классификатора"
+
+#: akcent_graph/apps/feature_classifier/models.py:63
+msgid "Additional features Classifier"
+msgstr "Дополнительные фичи классификатора"
+
+#: akcent_graph/apps/feature_classifier/models.py:91
+#: akcent_graph/apps/medaggregator/models.py:85
+#: akcent_graph/apps/medaggregator/models.py:105
+#: akcent_graph/apps/medaggregator/models.py:153
+#: akcent_graph/apps/medaggregator/models.py:180
+#: akcent_graph/apps/secret_settings/models.py:68
+msgid "Name"
+msgstr "Название"
+
+#: akcent_graph/apps/feature_classifier/models.py:92
+#: akcent_graph/apps/medaggregator/models.py:181
+msgid "Value"
+msgstr "Значение"
+
+#: akcent_graph/apps/feature_classifier/models.py:96
+msgid "Feature description Classifier"
+msgstr "Описание фичи классификатора"
+
+#: akcent_graph/apps/feature_classifier/models.py:97
+msgid "Feature descriptions Classifier"
+msgstr "Описания фич классификатора"
+
+#: akcent_graph/apps/feature_classifier/models.py:105
+#: akcent_graph/apps/feature_classifier/models.py:109
+msgid "Abbreviated phrase"
+msgstr "Фраза с аббревиатурой"
+
+#: akcent_graph/apps/feature_classifier/models.py:106
+msgid "Decrypted phrase"
+msgstr "Расшифрованная фраза"
+
+#: akcent_graph/apps/feature_classifier/models.py:110
+msgid "Abbreviated phrases"
+msgstr "Фразы с аббревиатурой"
+
+#: akcent_graph/apps/medaggregator/admin.py:42
+msgid "Search by protocol custom ID or user ID or medcard ID or pk protocol or logging"
+msgstr "Поиск или по ID клиента, или по ID пользователю, или по ID медкарты, или первичному ключу протокола, или логам"
+
+#: akcent_graph/apps/medaggregator/admin.py:52
+msgid "Filter protocols by loading in graphdb"
+msgstr "Фильтр протоколов по загрузке в графовую базу"
+
+#: akcent_graph/apps/medaggregator/admin.py:60
+msgid "Filter protocols by features classifier"
+msgstr "Фильтр протоколов по фичам классификатора"
+
+#: akcent_graph/apps/medaggregator/admin.py:73
+msgid "Search by user ID or medcard ID or patient medcard pk or logging"
+msgstr "Поиск или, по ID пользователю, или по ID медкарты, или первичному ключу медицинской карты пациента, или логам"
+
+#: akcent_graph/apps/medaggregator/admin.py:79
+msgid "Filter patient medcard by reprocessed"
+msgstr "Фильтрация медицинских карт по дате переработки"
+
+#: akcent_graph/apps/medaggregator/apps.py:8
+msgid "Medcard Aggregator"
+msgstr "Обработчик Медкарт"
+
+#: akcent_graph/apps/medaggregator/enums.py:6
+msgid "Temporary"
+msgstr "Временный"
+
+#: akcent_graph/apps/medaggregator/enums.py:7
+msgid "Chronic"
+msgstr "Хронический"
+
+#: akcent_graph/apps/medaggregator/enums.py:9
+msgid "(Undefined)"
+msgstr "(Неопределенный)"
+
+#: akcent_graph/apps/medaggregator/models.py:28
+msgid "Medcard ID"
+msgstr "ID Медкарты"
+
+#: akcent_graph/apps/medaggregator/models.py:29
+msgid "User ID"
+msgstr "ID пользователя"
+
+#: akcent_graph/apps/medaggregator/models.py:31
+msgid "Reprocessed at"
+msgstr "Переобработано в"
+
+#: akcent_graph/apps/medaggregator/models.py:32
+msgid "Additional marked with errors"
+msgstr "Дополнительно промаркировано с ошибками"
+
+#: akcent_graph/apps/medaggregator/models.py:33
+#: akcent_graph/apps/medaggregator/models.py:66
+msgid "Logging from marked"
+msgstr "Логи из маркировки"
+
+#: akcent_graph/apps/medaggregator/models.py:36
+msgid "Medcard information"
+msgstr "Информация по медкарте"
+
+#: akcent_graph/apps/medaggregator/models.py:37
+msgid "Medcards information"
+msgstr "Информации по медкарте"
+
+#: akcent_graph/apps/medaggregator/models.py:49
+msgid "Patient Medcard ID"
+msgstr "ID Медкарты пациента"
+
+#: akcent_graph/apps/medaggregator/models.py:53
+msgid "Protocol Custom ID"
+msgstr "ID протокола пользователя"
+
+#: akcent_graph/apps/medaggregator/models.py:56
+msgid "User-defined arbitrary string. Do not edit manually!"
+msgstr "Произвольная строка, определяемая пользователем. Не редактируйте вручную!"
+
+#: akcent_graph/apps/medaggregator/models.py:58
+msgid "Service ID"
+msgstr "ID услуги"
+
+#: akcent_graph/apps/medaggregator/models.py:59
+#, fuzzy
+#| msgid "Protocol Data"
+msgid "Protocol data"
+msgstr "Данные протокола"
+
+#: akcent_graph/apps/medaggregator/models.py:61
+msgid "Loaded to Neo at"
+msgstr "Загружено в Neo4j в"
+
+#: akcent_graph/apps/medaggregator/models.py:62
+msgid "Classified at"
+msgstr "Обработано классификатором фич в"
+
+#: akcent_graph/apps/medaggregator/models.py:63
+msgid "Unmarked features left"
+msgstr "Остались нерамеченные фичи"
+
+#: akcent_graph/apps/medaggregator/models.py:64
+msgid "Attention(s) changed"
+msgstr "Важные изменения"
+
+#: akcent_graph/apps/medaggregator/models.py:65
+msgid "Marked with errors"
+msgstr "Промаркировано с ошибками"
+
+#: akcent_graph/apps/medaggregator/models.py:67
+msgid "This is medtest"
+msgstr "Это медицинский тест"
+
+#: akcent_graph/apps/medaggregator/models.py:70
+#: akcent_graph/apps/medaggregator/models.py:158
+#: akcent_graph/apps/medaggregator/models.py:185
+msgid "Protocol"
+msgstr "Протокол"
+
+#: akcent_graph/apps/medaggregator/models.py:71
+#: akcent_graph/apps/medaggregator/models.py:116
+#: akcent_graph/apps/medaggregator/templates/admin/medaggregator/patientmedcard/change_form.html:9
+msgid "Protocols"
+msgstr "Протоколы"
+
+#: akcent_graph/apps/medaggregator/models.py:88
+msgid "Speciality"
+msgstr "Специальность"
+
+#: akcent_graph/apps/medaggregator/models.py:89
+msgid "Specialities"
+msgstr "Специальности"
+
+#: akcent_graph/apps/medaggregator/models.py:102
+msgid "Patient Medcard"
+msgstr "Медкарта пациента"
+
+#: akcent_graph/apps/medaggregator/models.py:106
+#: akcent_graph/apps/medaggregator/models.py:154
+msgid "Description"
+msgstr "Описание"
+
+#: akcent_graph/apps/medaggregator/models.py:107
+msgid "Date created"
+msgstr "Дата создания"
+
+#: akcent_graph/apps/medaggregator/models.py:109
+msgid "Diagnosis type"
+msgstr "Тип диагнозов"
+
+#: akcent_graph/apps/medaggregator/models.py:120
+msgid "Is sent to LK"
+msgstr "Отправлено в ЛК"
+
+#: akcent_graph/apps/medaggregator/models.py:123
+msgid "Doctor specialties"
+msgstr "Специальности доктора"
+
+#: akcent_graph/apps/medaggregator/models.py:128
+msgid "Visible to all doctors"
+msgstr "Просмотр всех докторов"
+
+#: akcent_graph/apps/medaggregator/models.py:130
+msgid "If set to true, Doctor specialties field is being ignored"
+msgstr "Если установлено значение true, поле «Специализации врача» игнорируется."
+
+#: akcent_graph/apps/medaggregator/models.py:134
+#: akcent_graph/apps/medaggregator/models.py:149
+#: akcent_graph/apps/medaggregator/models.py:176
+msgid "Diagnosis"
+msgstr "Диагноз"
+
+#: akcent_graph/apps/medaggregator/models.py:135
+msgid "Diagnoses"
+msgstr "Диагнозы"
+
+#: akcent_graph/apps/medaggregator/models.py:152
+#: akcent_graph/apps/medaggregator/models.py:179
+msgid "Group ID"
+msgstr "ID группы"
+
+#: akcent_graph/apps/medaggregator/models.py:165
+msgid "Patient string parameter"
+msgstr "Параметр строки пациента"
+
+#: akcent_graph/apps/medaggregator/models.py:166
+msgid "Patients string parameters"
+msgstr "Параметры строки пациентов"
+
+#: akcent_graph/apps/medaggregator/models.py:192
+msgid "Patient digital parameter"
+msgstr "Цифровой параметр пациента"
+
+#: akcent_graph/apps/medaggregator/models.py:193
+msgid "Patients digital parameters"
+msgstr "Цифровые параметры пациента"
+
+#: akcent_graph/apps/medaggregator/models.py:206
+msgid "Neo Node Data"
+msgstr "Данные neo node"
+
+#: akcent_graph/apps/medaggregator/models.py:207
+msgid "Neo Nodes Data"
+msgstr "Данные neo nodes"
+
+#: akcent_graph/apps/medaggregator/models.py:219
+msgid "Neo Node"
+msgstr "Neo Node"
+
+#: akcent_graph/apps/medaggregator/models.py:220
+msgid "Neo Nodes"
+msgstr "Neo Nodes"
+
+#: akcent_graph/apps/secret_settings/apps.py:8
+msgid "Advanced Settings"
+msgstr "Системные Настройки"
+
+#: akcent_graph/apps/secret_settings/models.py:6
+#: akcent_graph/apps/secret_settings/models.py:38
+msgid "API key"
+msgstr "Ключ API"
+
+#: akcent_graph/apps/secret_settings/models.py:7
+msgid "Folder ID"
+msgstr "Идентификатор каталога"
+
+#: akcent_graph/apps/secret_settings/models.py:8
+msgid "Headers"
+msgstr "Заголовки"
+
+#: akcent_graph/apps/secret_settings/models.py:9
+msgid "URL operation result prefix"
+msgstr "Начало URL для получения результата"
+
+#: akcent_graph/apps/secret_settings/models.py:10
+#: akcent_graph/apps/secret_settings/models.py:42
+msgid "Text embedding url"
+msgstr "URL для эмбеддинга текстов"
+
+#: akcent_graph/apps/secret_settings/models.py:11
+msgid "Completion sync url"
+msgstr "URL для синхронного ответа"
+
+#: akcent_graph/apps/secret_settings/models.py:12
+msgid "Completion async url"
+msgstr "URL для асинхронного ответа"
+
+#: akcent_graph/apps/secret_settings/models.py:13
+#: akcent_graph/apps/secret_settings/models.py:44
+msgid "Request timeout"
+msgstr "Таймаут на запрос"
+
+#: akcent_graph/apps/secret_settings/models.py:14
+msgid "Synchron queue timeout"
+msgstr "Таймаут для синхронной очереди"
+
+#: akcent_graph/apps/secret_settings/models.py:15
+msgid "Response timeout async"
+msgstr "Асинхронный таймаут возвращения ответа"
+
+#: akcent_graph/apps/secret_settings/models.py:16
+#: akcent_graph/apps/secret_settings/models.py:47
+msgid "Simultaneous generations"
+msgstr "Одновременные генерации"
+
+#: akcent_graph/apps/secret_settings/models.py:17
+msgid "Synchronous quota per hour"
+msgstr "Синхронная квота в час"
+
+#: akcent_graph/apps/secret_settings/models.py:18
+msgid "Asynchronous quota per hour"
+msgstr "Асинхронная квота в час"
+
+#: akcent_graph/apps/secret_settings/models.py:21
+msgid "YGPT url"
+msgstr "YGPT URL"
+
+#: akcent_graph/apps/secret_settings/models.py:22
+msgid "YGPT urls settings"
+msgstr "Настройки YGPT URLs"
+
+#: akcent_graph/apps/secret_settings/models.py:39
+msgid "Authorization Header"
+msgstr "Заголовок авторизации"
+
+#: akcent_graph/apps/secret_settings/models.py:40
+msgid "Request Header keyword"
+msgstr "Ключевое слово заголовка запроса"
+
+#: akcent_graph/apps/secret_settings/models.py:41
+msgid "Authorization url"
+msgstr "URL авторизации"
+
+#: akcent_graph/apps/secret_settings/models.py:43
+msgid "Completion url"
+msgstr "URL завершения"
+
+#: akcent_graph/apps/secret_settings/models.py:45
+msgid "Queue timeout"
+msgstr "Таймаут очереди"
+
+#: akcent_graph/apps/secret_settings/models.py:46
+msgid "Response timeout"
+msgstr "Таймаут ответа"
+
+#: akcent_graph/apps/secret_settings/models.py:48
+msgid "Quota per hour"
+msgstr "Квота в час"
+
+#: akcent_graph/apps/secret_settings/models.py:51
+msgid "GigaChat url"
+msgstr "GigaChat URL"
+
+#: akcent_graph/apps/secret_settings/models.py:52
+msgid "GigaChat urls settings"
+msgstr "Настройки GigaChat URLs"
+
+#: akcent_graph/apps/secret_settings/models.py:73
+msgid "User prompt"
+msgstr "Пользовательский промпт"
+
+#: akcent_graph/apps/secret_settings/models.py:74
+msgid "System prompt"
+msgstr "Системный промпт"
+
+#: akcent_graph/apps/secret_settings/models.py:77
+msgid "Prompt"
+msgstr "Промпт"
+
+#: akcent_graph/apps/secret_settings/models.py:78
+msgid "Prompts"
+msgstr "Промпты"
+
+#: akcent_graph/settings.py:143
+msgid "Russian"
+msgstr "Руссикй"
+
+#: akcent_graph/settings.py:144
+msgid "English"
+msgstr "Английский"
+
+#: akcent_graph/settings.py:271
+msgid "Akcent graph"
+msgstr "Акцент граф"
+
+#: akcent_graph/settings.py:353
+msgid "Size of icd symptom data"
+msgstr "Размер данных симтопов МКБ"
+
+#: akcent_graph/settings.py:354
+msgid "Annoy metric of icd symptom data"
+msgstr "Метрика annoy данных симптома МКБ"
+
+#: akcent_graph/settings.py:355
+msgid "Maximum number of clusters for grouping important features"
+msgstr "Максимальное число кластеров для группировки важных фич"
+
+#: akcent_graph/settings.py:356
+msgid "Priority users (enter numbers separated by comma)"
+msgstr "Приоритетные пользователи (введите числа, разделенные запятой)"
+
+#: akcent_graph/settings.py:357
+msgid "Number of protocols processed in parallel"
+msgstr "Количество параллельно обрабатываемых протоколов"
+
+#: akcent_graph/settings.py:360
+msgid "License server auth url"
+msgstr "URL-адрес аутентификации сервера лицензий"
+
+#: akcent_graph/settings.py:363
+msgid "License server login"
+msgstr "Логин аутентификации сервера лицензий"
+
+#: akcent_graph/settings.py:364
+msgid "License server password"
+msgstr "Пароль аутентификации сервера лицензий"
+
+#: akcent_graph/settings.py:365
+msgid "License access token lifetime, sec"
+msgstr "Срок действия токена доступа к лицензии, сек."
+
+#: akcent_graph/settings.py:366
+msgid "License refresh token lifetime, sec"
+msgstr "Срок действия токена обновления лицензии, сек."
+
+#: akcent_graph/templates/admin/custom_constance.html:4
+msgid "Refresh JWT keys"
+msgstr "Обновить JWT ключи"
+
+#: akcent_graph/templates/admin/custom_constance.html:12
+msgid "Success!"
+msgstr "Успех!"
+
+#: akcent_graph/templates/admin/custom_constance.html:14
+msgid "Something went wrong. Please try again!"
+msgstr "Что-то полшло не так. Пожалуйста, попробуйте позднее!"

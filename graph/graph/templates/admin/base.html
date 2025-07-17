@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static '/admin/css/admin_color_akcent_graph.css' %}"
+    />
+{% endblock %}
+
+
+{% block footer %}
+  {{ block.super }}
+   <div id="copyright" style="margin-bottom: 16px; padding: 16px; font-size: 16px; border-top: 1px solid #eaeaea;">
+     © 2023-{% now "Y" %} ООО "Акцент"
+   </div>
+{% endblock %}
