@@ -1,0 +1,86 @@
+[
+  {
+    "model": "secret_settings.ygptsettings",
+    "pk": 1,
+    "fields": {
+      "api_key": "",
+      "folder_id": "",
+      "headers": "",
+      "url_operation_result_prefix": "https://llm.api.cloud.yandex.net/operations/",
+      "text_embedding_url": "https://llm.api.cloud.yandex.net/foundationModels/v1/textEmbedding",
+      "completion_sync_url": "https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+      "completion_async_url": "https://llm.api.cloud.yandex.net/foundationModels/v1/completionAsync",
+      "sync_queue_timeout": 10.0,
+      "request_timeout": 10.0,
+      "response_timeout_async": 20.0,
+      "simultaneous_generations": 10,
+      "sync_quota_per_hour": 100,
+      "async_quota_per_hour": 5000
+    }
+  },
+  {
+    "model": "secret_settings.gigachatsettings",
+    "pk": 1,
+    "fields": {
+      "api_key": "",
+      "auth_headers": "",
+      "req_headers_keyword": "Bearer",
+      "auth_url": "https://ngw.devices.sberbank.ru:9443/api/v2/oauth",
+      "text_embedding_url": "https://gigachat.devices.sberbank.ru/api/v1/embeddings",
+      "completion_url": "https://gigachat.devices.sberbank.ru/api/v1/chat/completions",
+      "request_timeout": 10.0,
+      "queue_timeout": 40.0,
+      "response_timeout": 40.0,
+      "simultaneous_generations": 10,
+      "quota_per_hour": 1000
+    }
+  },
+  {
+    "model": "medaggregator.speciality",
+    "pk": 2,
+    "fields": {
+      "name": "главный врач"
+    }
+  },
+  {
+    "model": "medaggregator.speciality",
+    "pk": 3,
+    "fields": {
+      "name": "врач-акушер-гинеколог"
+    }
+  },
+  {
+    "model": "medaggregator.speciality",
+    "pk": 4,
+    "fields": {
+      "name": "врач-аллерголог-иммунолог"
+    }
+  },
+  {
+    "model": "secret_settings.prompt",
+    "pk": 1,
+    "fields":{
+      "name": "description of personal features",
+      "system_text": "Ты медицинский справочник! Тебе на вход подаётся симптом. Опиши, что означает поданный симптом. Ты возвращаешь только описание самого симптома.\n Формат ответа: [симптом] - это [его описание].\n\nСимптом: [{symptom}]",
+      "user_text": "Скорректируй описание симптома/состояние, на основе входящего описания симптома/состояния. Ты должен обращать внимание на прилагательные, наличие и отсутствие.\n\nОписание: [{description}]"
+    }
+  },
+  {
+    "model": "secret_settings.prompt",
+    "pk": 2,
+    "fields":{
+      "name": "description of extract from medical card",
+      "system_text": "Ты высоквалифицированный врач. Напиши три пункта в медицинской выписке. В качестве названия пунктов используй элементы кортежа {extract_sample}.\n Не дроби пункты на подпункты. Соблюдай нумерацию, как в образце.",
+      "user_text": "У Тебя есть болезнь {disease} и соответсвующий болезни анамнез {anamnesis} для генерации медицинской выписки пациента только согласно образцу {extract_sample}!\n На основании этих данных  создай элементы медицинской выписки следующего формата, названия обязательно такие же:\n В пункте 6. образца напиши только {disease}\n в пукнтках 7. и 8. образца воспользуйся данными из анамнеза\n В пункте 8., если есть на то основание из данных анамнеза укажи консультацию рекомендуемого специалиста\n Всё что связано с числовыми результатами не описывай только словами.\n Включи динамику числовых показателей из анамнеза.\n Если встретишь код МКБ, преобразуй в название болезни.\n Нет информации, оставляй незаполненным пункт."
+    }
+  },
+  {
+    "model": "secret_settings.prompt",
+    "pk": 3,
+    "fields":{
+      "name": "classification of possible relationships",
+      "system_text": "Ты высоквалифицированный врач. Твоя задача провести бинарную классификацию, может ли родительская сущность с именем {parent_entity} быть связана с потенциальной дочерней сущностью с именем {daughter_entity} с медицинcкой точки зрения. Дочерняя сущность не должна содержать в себе родительскую сущность. Это всегда 0. Сомневаешься, что ставить, ставь 0. Если для проведения бинарной классификации необходимо больше информации, ставь 0!!!!!",
+      "user_text": "Проведи бинарную классификацию. В результате ты должен выдать 0 типа int, если родительская сущность с именем {parent_entity} не связана с дочерней сущностью {daughter_entity}. В обратном случае выдай 1 типа int, но только, если дочерняя сущность является и частью родительской сущности и её логическим продолжением. В качестве примера в палате могут быть пациента, но в пациентах не может быть палата. Также митральный клапан часть сердца, но сердце не часть митрального клапана."
+    }
+  }
+]

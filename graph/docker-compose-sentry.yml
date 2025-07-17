@@ -1,0 +1,72 @@
+version: '3.9'
+
+services:
+  sentry-redis:
+    image: redis:6.0.6
+    expose:
+      - "6379"
+    container_name: sentry-redis
+    hostname: sentry-redis
+    restart: always
+    volumes:
+      - ./data/sentry/redis/data:/data
+
+  sentry-postgres:
+    image: postgres:15.3-alpine
+    expose:
+      - "5432"
+    container_name: sentry-postgres
+    hostname: sentry-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: sentry
+      POSTGRES_PASSWORD: 89PsZXyRStOT2
+      POSTGRES_DB: sentry
+    volumes:
+      - ./data/sentry/postgres:/var/lib/postgresql/data
+
+  sentry-base:
+    image: sentry:9.1.2
+    platform: linux/amd64
+    container_name: sentry-base
+    hostname: sentry-base
+    restart: always
+    ports:
+      - '9000:9000'
+    env_file:
+      - .env
+    depends_on:
+      - sentry-redis
+      - sentry-postgres
+    volumes:
+      - ./data/sentry/sentry:/var/lib/sentry/files
+
+  sentry-cron:
+    image: sentry:9.1.2
+    platform: linux/amd64
+    container_name: sentry-cron
+    hostname: sentry-cron
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - sentry-redis
+      - sentry-postgres
+    command: "sentry run cron"
+    volumes:
+      - ./data/sentry/sentry:/var/lib/sentry/files
+
+  sentry-worker:
+    image: sentry:9.1.2
+    platform: linux/amd64
+    container_name: sentry-worker
+    hostname: sentry-worker
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - sentry-redis
+      - sentry-postgres
+    command: "sentry run worker"
+    volumes:
+      - ./data/sentry/sentry:/var/lib/sentry/files
